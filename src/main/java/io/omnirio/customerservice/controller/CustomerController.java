@@ -13,7 +13,6 @@ import io.omnirio.customerservice.models.User;
 import io.omnirio.customerservice.repository.CustomerRepository;
 
 @RestController
-@RequestMapping("/customer")
 public class CustomerController {
 
 //	@Autowired
@@ -21,13 +20,18 @@ public class CustomerController {
 	
 	@Autowired
 	private CustomerRepository customerRepository;
-
+	
 	@GetMapping("/")
+	public String getWelcomeMessage() {
+		return "CustomerMicroservice";
+	}
+
+	@GetMapping("/customer")
 	List<User> getAllUsers() {
 		return customerRepository.findAll();
 	}
 
-	@PostMapping("/")
+	@PostMapping("/customer")
 	User AddUser(@RequestBody User newUser) {
 		return customerRepository.save(newUser);
 	}
