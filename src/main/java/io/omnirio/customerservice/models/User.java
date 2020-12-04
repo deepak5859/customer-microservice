@@ -23,7 +23,6 @@ public class User {
 	private String phone;
 
 	public User() {
-		// TODO Auto-generated constructor stub
 	}
 
 	@ManyToMany(cascade = CascadeType.MERGE)
